@@ -5,15 +5,39 @@ if($host.UI.RawUI.WindowTitle -like "*administrator*") {
 }
 
 # Aliases
-new-item alias:np -value 'C:\Program Files (x86)\Notepad++\notepad++.exe'
+new-item alias:np -value "C:\Program Files (x86)\Notepad++\notepad++.exe"
+new-item alias:phpstorm -value "C:\Program Files\JetBrains\PhpStorm 2017.3\bin\phpstorm64.exe"
+new-item alias:intellij -value "C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\bin\idea64.exe"
+new-item alias:pycharm -value "C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\pycharm64.exe"
+new-item alias:webstorm -value "C:\Program Files\JetBrains\WebStorm 2017.3\bin\webstorm64.exe"
+
 
 # Welcome message
-$welcome = "Welcome, Mr. Farrell"
+$welcome = "
+          _______  _        _______  _______  _______  _______       _______  _______    
+|\     /|(  ____ \( \      (  ____ \(  ___  )(       )(  ____ \     (       )(  ____ )   
+| )   ( || (    \/| (      | (    \/| (   ) || () () || (    \/     | () () || (    )|   
+| | _ | || (__    | |      | |      | |   | || || || || (__         | || || || (____)|   
+| |( )| ||  __)   | |      | |      | |   | || |(_)| ||  __)        | |(_)| ||     __)   
+| || || || (      | |      | |      | |   | || |   | || (           | |   | || (\ (      
+| () () || (____/\| (____/\| (____/\| (___) || )   ( || (____/\ _   | )   ( || ) \ \__ _ 
+(_______)(_______/(_______/(_______/(_______)|/     \|(_______/( )  |/     \||/   \__/(_)
+                                                               |/                        
+ _______  _______  _______  _______  _______  _        _       
+(  ____ \(  ___  )(  ____ )(  ____ )(  ____ \( \      ( \      
+| (    \/| (   ) || (    )|| (    )|| (    \/| (      | (      
+| (__    | (___) || (____)|| (____)|| (__    | |      | |      
+|  __)   |  ___  ||     __)|     __)|  __)   | |      | |      
+| (      | (   ) || (\ (   | (\ (   | (      | |      | |      
+| )      | )   ( || ) \ \__| ) \ \__| (____/\| (____/\| (____/\
+|/       |/     \||/   \__/|/   \__/(_______/(_______/(_______/
+                                                               
+"			
 
 try {
 	# Set city to query for weather
-	$city = "Endicott"
-	$api_url = "https://api.openweathermap.org/data/2.5/weather?q=" + $city + "&units=imperial&APPID=81044f3b09ae3a70b0625db9f068f1a1"
+	$city = ""
+	$api_url = "https://api.openweathermap.org/data/2.5/weather?q=" + $city + "&units=imperial&APPID="
 
 	# Get weather from https://openweathermap.org/api
 	$weatherJson = Invoke-RestMethod -Uri $api_url
