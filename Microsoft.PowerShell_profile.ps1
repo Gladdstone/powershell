@@ -15,6 +15,17 @@ new-item alias:pycharm -value "C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\p
 new-item alias:webstorm -value "C:\Program Files\JetBrains\WebStorm 2017.3\bin\webstorm64.exe"
 # Touch
 function touch {set-content -Path ($args[0]) -Value ($null)}
+# Github
+function github($c, $r) {
+	switch($c) {
+		"init" {
+			C:\Users\JosephFarrell\Documents\WindowsPowerShell\github\init.ps1 $r
+		}
+		default {
+			"You can initialize and pull from an existing repository with init"
+		}
+	}
+}
 
 # Welcome message
 $welcome = "
