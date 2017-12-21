@@ -4,13 +4,17 @@ if($host.UI.RawUI.WindowTitle -like "*administrator*") {
 	$host.UI.RawUI.ForegroundColor = "Red"
 }
 
+#-----------------------
 # Aliases
+#-----------------------
+# IDEs
 new-item alias:np -value "C:\Program Files (x86)\Notepad++\notepad++.exe"
 new-item alias:phpstorm -value "C:\Program Files\JetBrains\PhpStorm 2017.3\bin\phpstorm64.exe"
 new-item alias:intellij -value "C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\bin\idea64.exe"
 new-item alias:pycharm -value "C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\pycharm64.exe"
 new-item alias:webstorm -value "C:\Program Files\JetBrains\WebStorm 2017.3\bin\webstorm64.exe"
-
+# Touch
+function touch {set-content -Path ($args[0]) -Value ($null)}
 
 # Welcome message
 $welcome = "
@@ -54,7 +58,7 @@ try {
 	$sunrise = [timezone]::CurrentTimeZone.ToLocalTime(([datetime]'1/1/1970').AddSeconds($sunrise_mill))
 	$sunset = [timezone]::CurrentTimeZone.ToLocalTime(([datetime]'1/1/1970').AddSeconds($sunset_mill))
 
-	Clear-Host
+	#Clear-Host
 	Write-Host "`n"$welcome
 	Write-Host "The weather today is" $weather "`n And the current temperature is "$temp
 }
