@@ -51,8 +51,8 @@ $welcome = "
 
 try {
 	# Set city to query for weather
-	$city = ""
-	$api_url = "https://api.openweathermap.org/data/2.5/weather?q=" + $city + "&units=imperial&APPID="
+	$city = "Endicott"
+	$api_url = "https://api.openweathermap.org/data/2.5/weather?q=" + $city + "&units=imperial&APPID=81044f3b09ae3a70b0625db9f068f1a1"
 
 	# Get weather from https://openweathermap.org/api
 	$weatherJson = Invoke-RestMethod -Uri $api_url
@@ -69,9 +69,21 @@ try {
 	$sunrise = [timezone]::CurrentTimeZone.ToLocalTime(([datetime]'1/1/1970').AddSeconds($sunrise_mill))
 	$sunset = [timezone]::CurrentTimeZone.ToLocalTime(([datetime]'1/1/1970').AddSeconds($sunset_mill))
 
+	$weather_output = "
+	The weather today is $weather
+	And the current temperature is $temp
+	
+	    _\/_                                 
+     /o\\            \       /          //o\        Sunrise will take place at $sunrise, this morning
+      |                .-'-.              |         And sunset will occur at $sunset.
+    __|______     --  /     \  --     ____|__
+             `~^~^~^~^~^~^~^~^~^~^~^~`
+			 
+	"
+	
 	#Clear-Host
 	Write-Host "`n"$welcome
-	Write-Host "The weather today is" $weather "`n And the current temperature is "$temp
+	Write-Host "`n"$weather_output
 }
 catch {
 	$ErrorMessage = $_.Exception.Message
