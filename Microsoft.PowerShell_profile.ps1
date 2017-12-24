@@ -24,6 +24,9 @@ function github($c, $r) {
 		"push" {
 			C:\Users\JosephFarrell\Documents\WindowsPowerShell\github\push.ps1
 		}
+		"pull" {
+			C:\Users\JosephFarrell\Documents\WindowsPowerShell\github\pull.ps1
+		}
 		default {
 			"You can initialize and pull from an existing repository with init"
 		}
