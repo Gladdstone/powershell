@@ -27,8 +27,16 @@ function github($c, $r) {
 		"pull" {
 			C:\Users\JosephFarrell\Documents\WindowsPowerShell\github\pull.ps1
 		}
+		"reset" {
+			C:\Users\JosephFarrell\Documents\WindowsPowerShell\github\reset.ps1
+		}
 		default {
-			"You can initialize and pull from an existing repository with init"
+			"
+			init - initialize new repo and pull from existing Github repo
+			push - stage all changes and push to Githu w/ message
+			pull - pull changes from Github
+			reset - perform soft or hard reset of changes to commit
+			"
 		}
 	}
 }
