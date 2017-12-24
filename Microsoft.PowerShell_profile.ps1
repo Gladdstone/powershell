@@ -51,8 +51,8 @@ $welcome = "
 
 try {
 	# Set city to query for weather
-	$city = "Endicott"
-	$api_url = "https://api.openweathermap.org/data/2.5/weather?q=" + $city + "&units=imperial&APPID=81044f3b09ae3a70b0625db9f068f1a1"
+	$city = ""
+	$api_url = "https://api.openweathermap.org/data/2.5/weather?q=" + $city + "&units=imperial&APPID="
 
 	# Get weather from https://openweathermap.org/api
 	$weatherJson = Invoke-RestMethod -Uri $api_url
