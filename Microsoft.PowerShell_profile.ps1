@@ -19,7 +19,10 @@ function touch {set-content -Path ($args[0]) -Value ($null)}
 function github($c, $r) {
 	switch($c) {
 		"init" {
-			C:\Users\JosephFarrell\Documents\WindowsPowerShell\github\init.ps1 $r
+			C:\Users\JosephFarrell\Documents\WindowsPowerShell\github\init.ps1
+		}
+		"push" {
+			C:\Users\JosephFarrell\Documents\WindowsPowerShell\github\push.ps1
 		}
 		default {
 			"You can initialize and pull from an existing repository with init"
