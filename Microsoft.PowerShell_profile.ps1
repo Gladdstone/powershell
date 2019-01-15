@@ -15,6 +15,16 @@ new-item alias:pycharm -value "C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\p
 new-item alias:webstorm -value "C:\Program Files\JetBrains\WebStorm 2017.3\bin\webstorm64.exe"
 # Touch
 function touch {set-content -Path ($args[0]) -Value ($null)}
+# Get file permissions
+function Get-Permissions ($folder) {
+	(get-acl $folder).access | select `
+		@{Label="Identity";Expression={$_.IdentityReference}}, `
+		@{Label="Right";Expression={$_.FileSystemRights}}, `
+		@{Label="Access";Expression={$_.AccessControlType}}, `
+		@{Label="Inherited";Expression={$_.IsInherited}}, `
+		@{Label="Inheritance Flags";Expression={$_.InheritanceFlags}}, `
+		@{Label="Propagation Flags";Expression={$_.PropagationFlags}} | ft -auto
+}
 # Github
 function github($c, $r) {
 	switch($c) {
