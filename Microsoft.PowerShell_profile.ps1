@@ -25,6 +25,10 @@ function Get-Permissions ($folder) {
 		@{Label="Inheritance Flags";Expression={$_.InheritanceFlags}}, `
 		@{Label="Propagation Flags";Expression={$_.PropagationFlags}} | ft -auto
 }
+# Open environment variables
+function envvar {
+	rundll32 sysdm.cpl,EditEnvironmentVariables
+}
 # Github
 function github($c, $r) {
 	switch($c) {
