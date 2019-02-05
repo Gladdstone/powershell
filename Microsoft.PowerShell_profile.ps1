@@ -1,4 +1,5 @@
 $host.UI.RawUI.WindowTitle = "JARVIS"
+$TRANSCRIPT_PATH = ""
 # Change foreground to red if run by admin
 if($host.UI.RawUI.WindowTitle -like "*administrator*") {
 	$host.UI.RawUI.ForegroundColor = "Red"
@@ -124,3 +125,7 @@ catch {
 }
 # This takes a long time
 # Update-Help
+
+# Start or append to an existing transcript for current date
+$date = Get-Date -UFormat "%Y-%m-%d"
+Start-Transcript -Path "$TRASNCRIPT_PATH\$date.txt" -Append
